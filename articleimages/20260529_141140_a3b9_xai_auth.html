@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xAI Grok OAuth 授权</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; background: #f5f5f5; }
+        .card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 10px; }
+        .subtitle { color: #666; margin-bottom: 30px; }
+        .step { margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #2196F3; }
+        .step-number { display: inline-block; width: 24px; height: 24px; background: #2196F3; color: white; border-radius: 50%; text-align: center; line-height: 24px; font-weight: bold; margin-right: 10px; }
+        .url-box { background: #e3f2fd; padding: 15px; border-radius: 8px; word-break: break-all; font-family: monospace; font-size: 14px; color: #1565c0; margin: 10px 0; }
+        .code-box { background: #fff3e0; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; color: #e65100; margin: 10px 0; }
+        .warning { background: #ffebee; padding: 15px; border-radius: 8px; color: #c62828; margin: 15px 0; }
+        .success { background: #e8f5e9; padding: 15px; border-radius: 8px; color: #2e7d32; margin: 15px 0; }
+        a { color: #2196F3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .btn { display: inline-block; padding: 12px 24px; background: #2196F3; color: white; border-radius: 6px; text-decoration: none; margin: 10px 0; }
+        .btn:hover { background: #1976D2; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🔥 xAI Grok OAuth 授权</h1>
+        <p class="subtitle">使用 SuperGrok 订阅激活 xAI Grok 多模态能力</p>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>点击授权链接</strong>
+            <div class="url-box">
+                <a href="https://auth.x.ai/oauth2/authorize?client_id=b1a00492-073a-47ea-816f-4c329264a828&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A56121%2Fcallback&code_challenge=osTdBD9fpkQNzddnbUIWQTZ618BppZGbF9ofbKx0ev8&code_challenge_method=S256&state=8d18ca11badb48d3a5d67671d9744ed9&scope=openid+profile+email+offline_access+grok-cli%3Aaccess+api%3Aaccess&plan=generic" target="_blank">https://auth.x.ai/oauth2/authorize?client_id=b1a00492-073a-47ea-816f-4c329264a828&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A56121%2Fcallback&code_challenge=osTdBD9fpkQNzddnbUIWQTZ618BppZGbF9ofbKx0ev8&code_challenge_method=S256&state=8d18ca11badb48d3a5d67671d9744ed9&scope=openid+profile+email+offline_access+grok-cli%3Aaccess+api%3Aaccess&plan=generic</a>
+            </div>
+            <a href="HTMLEOF
+        
+        echo "$AUTH_URL" >> /data/.hermes/image_cache/xai_auth.html
+        
+        cat >> /data/.hermes/image_cache/xai_auth.html << 'HTMLEOF'
+" target="_blank" class="btn">🔗 点击授权</a>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>使用 Twitter/X 蓝V 账号登录</strong>
+            <p>确保使用开通了 SuperGrok 订阅的 Twitter/X 账号</p>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>授权后复制 code</strong>
+            <p>浏览器会跳转到 localhost（显示"无法访问"属正常）</p>
+            <div class="warning">
+                <strong>⚠️ 重要：</strong>从浏览器地址栏复制 <code>code</code> 参数的值<br>
+                示例：http://127.0.0.1:56121/callback?code=<strong>ABC123</strong><br>
+                只需复制 <strong>ABC123</strong> 这部分
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">4</span>
+            <strong>配置环境变量</strong>
+            <p>在 Hugging Face Space → Settings → Secrets 中添加：</p>
+            <div class="code-box">
+                XAI_OAUTH_CODE=&lt;复制的 code&gt;<br>
+                XAI_OAUTH_VERIFIER=5jm6or5GQ6RIXebXGXYj3pZq07T-kR0ix3pkiYjQUzs
+            </div>
+        </div>
+        
+        <div class="step">
+            <span class="step-number">5</span>
+            <strong>重启容器</strong>
+            <p>点击 <strong>Factory Rebuild</strong> 按钮，系统会自动完成授权</p>
+            <div class="success">
+                ✅ 重启后 xAI Grok (grok-4.3) 将自动激活
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #999; font-size: 12px;">
+            <p>Hermes Agent v0.12.0 - xAI Grok OAuth Integration</p>
+        </div>
+    </div>
+</body>
+</html>
