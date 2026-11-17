@@ -1,2 +1,0 @@
-# ytmapppic
-ytm.app image
